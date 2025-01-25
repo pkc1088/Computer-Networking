@@ -10,15 +10,15 @@ bufferSize  = 1024
 msgFromServer       = "Hello UDP Client"
 bytesToSend         = str.encode(msgFromServer)
 
-# µ¥ÀÌÅÍ±×·¥ ¼ÒÄÏÀ» »ı¼º
+# ë°ì´í„°ê·¸ë¨ ì†Œì¼“ì„ ìƒì„±
 UDPServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
-# ÁÖ¼Ò¿Í IP·Î Bind
+# ì£¼ì†Œì™€ IPë¡œ Bind
 UDPServerSocket.bind((localIP, localPort))
 
 print("UDP server up and listening")
 
-# µé¾î¿À´Â µ¥ÀÌÅÍ±×·¥ Listen
+# ë“¤ì–´ì˜¤ëŠ” ë°ì´í„°ê·¸ë¨ Listen
 while(True):
     bytesAddressPair = UDPServerSocket.recvfrom(bufferSize)
     message = bytesAddressPair[0]
@@ -42,10 +42,10 @@ bytesToSend         = str.encode(msgFromClient)
 serverAddressPort   = ("127.0.0.1", 20001)
 bufferSize          = 1024
 
-# Å¬¶óÀÌ¾ğÆ® ÂÊ¿¡¼­ UDP ¼ÒÄÏ »ı¼º
+# í´ë¼ì´ì–¸íŠ¸ ìª½ì—ì„œ UDP ì†Œì¼“ ìƒì„±
 UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
-# »ı¼ºµÈ UDP ¼ÒÄÏÀ» »ç¿ëÇÏ¿© ¼­¹ö·Î Àü¼Û
+# ìƒì„±ëœ UDP ì†Œì¼“ì„ ì‚¬ìš©í•˜ì—¬ ì„œë²„ë¡œ ì „ì†¡
 UDPClientSocket.sendto(bytesToSend, serverAddressPort)
 
 msgFromServer = UDPClientSocket.recvfrom(bufferSize)
